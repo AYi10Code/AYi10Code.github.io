@@ -145,5 +145,45 @@
             </div>
         </div>
     </main>
+    <!-- Lightbox 燈箱彈窗結構 -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="作品大圖">
+            <div class="lightbox-text">
+                <span id="lightbox-month" class="lightbox-month"></span>
+                <p id="lightbox-desc" class="lightbox-desc"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxMonth = document.getElementById('lightbox-month');
+        const lightboxDesc = document.getElementById('lightbox-desc');
+
+        // 綁定所有作品卡片的點擊事件
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', () => {
+                const img = card.querySelector('.img-wrapper img');
+                const month = card.querySelector('.month');
+                const desc = card.querySelector('.description');
+
+                if (img) {
+                    lightboxImg.src = img.src;
+                    lightboxMonth.textContent = month ? month.textContent : '';
+                    lightboxDesc.textContent = desc ? desc.textContent : '';
+                    lightbox.classList.add('active');
+                }
+            });
+        });
+
+        // 點擊任意空白處（遮罩區域）關閉大圖
+        lightbox.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
 </body>
 </html>

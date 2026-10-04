@@ -81,3 +81,91 @@ header p {
     color: #555;
     line-height: 1.4;
 }
+
+/* 增加卡片可點擊提示與懸浮動畫 */
+.card {
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* Lightbox 燈箱全螢幕遮罩 */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px); /* 毛玻璃模糊背景 */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.lightbox.active {
+    display: flex;
+    opacity: 1;
+}
+
+/* 彈窗內容主體 */
+.lightbox-content {
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    animation: zoomIn 0.25s ease;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    background-color: #111;
+}
+
+.lightbox-text {
+    padding: 16px 20px;
+    width: 100%;
+    background: #ffffff;
+    text-align: center;
+}
+
+.lightbox-month {
+    display: block;
+    font-weight: bold;
+    color: #0066cc;
+    font-size: 1rem;
+    margin-bottom: 6px;
+}
+
+.lightbox-desc {
+    color: #444;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* 彈窗淡入動畫 */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.92);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
