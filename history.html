@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>历史作品归档</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 左上角导航 -->
+    <div class="nav-container">
+        <button id="menu-toggle" class="menu-btn">☰ 菜单</button>
+        <div id="dropdown-menu" class="dropdown-menu">
+            <a href="index.html">🏠 最新展厅</a>
+            <a href="history.html">📜 历史</a>
+            <a href="about.html">👤 关于我</a>
+        </div>
+    </div>
+
+    <header>
+        <h1>历史作品归档</h1>
+        <p>选择过去的创作时期</p>
+    </header>
+
+    <main class="history-container">
+        <!-- 未来 2028 年到了，直接取消下面注释粘贴在最上面 -->
+        <!--
+        <a href="2028.html" class="history-card">
+            <h3>2028 年展示</h3>
+            <p>2028 年度的创作更新展厅</p>
+        </a>
+        -->
+
+        <!-- 近期年份排在偏上 -->
+        <a href="index.html" class="history-card">
+            <h3>2027 年展示</h3>
+            <p>跳转回 2027 年度的创作更新展厅</p>
+        </a>
+
+        <!-- 最远久的时间（混沌时期）固定排在最下面 -->
+        <a href="chaos-period.html" class="history-card">
+            <h3>混沌时期的画作</h3>
+            <p>包含早期练习与探索时期的 12 幅画作作品</p>
+        </a>
+    </main>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('show');
+        });
+
+        document.addEventListener('click', () => {
+            dropdownMenu.classList.remove('show');
+        });
+    </script>
+</body>
+</html>

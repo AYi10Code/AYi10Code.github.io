@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 左上角导航 -->
+    <div class="nav-container">
+        <button id="menu-toggle" class="menu-btn">☰ 菜单</button>
+        <div id="dropdown-menu" class="dropdown-menu">
+            <a href="index.html">🏠 2027展厅</a>
+            <a href="history.html">📜 历史</a>
+            <a href="about.html">👤 关于我</a>
+        </div>
+    </div>
+
+    <main class="about-card">
+        <div class="avatar-wrapper">
+            <img src="images/avatar.jpg" alt="个人头像" onerror="this.src='images/placeholder.jpg'">
+        </div>
+        <h2>作者简介</h2>
+
+        <div class="about-info">
+            <div class="about-item">
+                <span class="label">如何称呼：</span>
+                <div class="content">阿一，东东，耀中，一心，晚星</div>
+            </div>
+
+            <div class="about-item">
+                <span class="label">爱好：</span>
+                <div class="content">绘画、吉他、偶尔打打游戏</div>
+            </div>
+
+            <div class="about-item">
+                <span class="label">梦想：</span>
+                <div class="content">财务自由，环游世界</div>
+            </div>
+
+            <div class="about-item">
+                <span class="label">想说的话：</span>
+                <div class="content">认识到自己的不足，并通过学习不断的提升自己。</div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('show');
+        });
+
+        document.addEventListener('click', () => {
+            dropdownMenu.classList.remove('show');
+        });
+    </script>
+</body>
+</html>

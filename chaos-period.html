@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>混沌时期的画作</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 左上角导航 -->
+    <div class="nav-container">
+        <button id="menu-toggle" class="menu-btn">☰ 菜单</button>
+        <div id="dropdown-menu" class="dropdown-menu">
+            <a href="index.html">🏠 最新展厅</a>
+            <a href="history.html">📜 历史</a>
+            <a href="about.html">👤 关于我</a>
+        </div>
+    </div>
+
+    <header>
+        <h1>混沌时期的画作</h1>
+        <p>12 幅早期创作记录</p>
+    </header>
+
+    <main class="gallery-container">
+        <!-- 循环 12 个作品卡片 -->
+        <!-- 后续只需将 images/placeholder.jpg 替换为 Chaos 时代的图片路径 -->
+        <div class="card">
+            <div class="img-wrapper"><img src="images/chaos-periods/chaos01.png" alt="混沌时期 01"></div>
+            <div class="card-info"><span class="month">作品 01</span><p class="description">弹弹琴...</p></div>
+        </div>
+        <div class="card">
+            <div class="img-wrapper"><img src="images/chaos-periods/chaos02.png" alt="混沌时期 02"></div>
+            <div class="card-info"><span class="month">作品 02</span><p class="description">练拳...我打！</p></div>
+        </div>
+        <div class="card">
+            <div class="img-wrapper"><img src="images/chaos-periods/chaos03.png" alt="混沌时期 03"></div>
+            <div class="card-info"><span class="month">作品 03</span><p class="description">大将军驾到，通通闪开！</p></div>
+        </div>
+        <div class="card">
+            <div class="img-wrapper"><img src="images/chaos-periods/chaos04.png" alt="混沌时期 04"></div>
+            <div class="card-info"><span class="month">作品 04</span><p class="description">彻底...疯狂！！</p></div>
+        </div>
+        <div class="card">
+            <div class="img-wrapper"><img src="images/chaos-periods/chaos05.png" alt="混沌时期 05"></div>
+            <div class="card-info"><span class="month">作品 05</span><p class="description">你中枪了</p></div>
+        </div>
+        <div class="card">
+            <div class="img-wrapper"><img src="images/chaos-periods/chaos06.png" alt="混沌时期 06"></div>
+            <div class="card-info"><span class="month">作品 06</span><p class="description">吃个西瓜</p></div>
+        </div>
+        <div class="card">
+            <div class="img-wrapper"><img src="images/chaos-periods/chaos07.png" alt="混沌时期 07"></div>
+            <div class="card-info"><span class="month">作品 07</span><p class="description">冰淇淋自由...</p></div>
+        </div>
+        <div class="card">
+            <div class="img-wrapper"><img src="images/chaos-periods/chaos08.png" alt="混沌时期 08"></div>
+            <div class="card-info"><span class="month">作品 08</span><p class="description">美丽心情</p></div>
+        </div>
+        <div class="card">
+            <div class="img-wrapper"><img src="images/chaos-periods/chaos09.png" alt="混沌时期 09"></div>
+            <div class="card-info"><span class="month">作品 09</span><p class="description">无题</p></div>
+        </div>
+        <div class="card">
+            <div class="img-wrapper"><img src="images/chaos-periods/chaos10.png" alt="混沌时期 10"></div>
+            <div class="card-info"><span class="month">作品 10</span><p class="description">六合掌法</p></div>
+        </div>
+        <div class="card">
+            <div class="img-wrapper"><img src="images/chaos-periods/chaos11.png" alt="混沌时期 11"></div>
+            <div class="card-info"><span class="month">作品 11</span><p class="description">蓬松尾巴</p></div>
+        </div>
+        <div class="card">
+            <div class="img-wrapper"><img src="images/chaos-periods/chaos12.png" alt="混沌时期 12"></div>
+            <div class="card-info"><span class="month">作品 12</span><p class="description">来杯奶茶</p></div>
+        </div>
+    </main>
+
+    <!-- Lightbox 放大预览 -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="大图">
+            <div class="lightbox-text">
+                <span id="lightbox-month" class="lightbox-month"></span>
+                <p id="lightbox-desc" class="lightbox-desc"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('show');
+        });
+
+        document.addEventListener('click', () => {
+            dropdownMenu.classList.remove('show');
+        });
+
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxMonth = document.getElementById('lightbox-month');
+        const lightboxDesc = document.getElementById('lightbox-desc');
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', () => {
+                const img = card.querySelector('.img-wrapper img');
+                const month = card.querySelector('.month');
+                const desc = card.querySelector('.description');
+
+                if (img) {
+                    lightboxImg.src = img.src;
+                    lightboxMonth.textContent = month ? month.textContent : '';
+                    lightboxDesc.textContent = desc ? desc.textContent : '';
+                    lightbox.classList.add('active');
+                }
+            });
+        });
+
+        lightbox.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+    </script>
+</body>
+</html>

@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- 左上角导航按钮 -->
+    <div class="nav-container">
+        <button id="menu-toggle" class="menu-btn">☰ 菜单</button>
+        <div id="dropdown-menu" class="dropdown-menu">
+            <a href="history.html">📜 历史</a>
+            <a href="about.html">👤 关于我</a>
+        </div>
+    </div>
     <header>
         <h1>2027 绘画创作分享</h1>
         <p>每月更新一张创作</p>
@@ -182,8 +190,18 @@
         lightbox.addEventListener('click', () => {
             lightbox.classList.remove('active');
         });
+        // 导航菜单开关控制
+        const menuToggle = document.getElementById('menu-toggle');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('show');
+        });
+
+        document.addEventListener('click', () => {
+            dropdownMenu.classList.remove('show');
+        });
     </script>
-</body>
-</html>
 </body>
 </html>
